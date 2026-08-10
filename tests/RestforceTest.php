@@ -6,14 +6,22 @@ use EventFarm\Restforce\RestforceException;
 
 class RestforceTest extends AbstractRestforceTestCase
 {
-    private const DUMMY_CLIENT_ID = 'dummyClientId';
-    private const DUMMY_CLIENT_SECRET = 'dummyClientSecret';
-    private const NULL_ACCESS_TOKEN = null;
-    private const NULL_USERNAME = null;
-    private const NULL_PASSWORD = null;
+    const DUMMY_CLIENT_ID = 'dummyClientId';
+    const DUMMY_CLIENT_SECRET = 'dummyClientSecret';
+    const NULL_ACCESS_TOKEN = null;
+    const NULL_USERNAME = null;
+    const NULL_PASSWORD = null;
 
     public function testSomethingCrazy()
     {
+        if (getenv('SALESFORCE_OAUTH_CLIENT') === 'enter-here'
+            || getenv('SALESFORCE_OAUTH_SECRET') === 'enter-here'
+            || getenv('SALESFORCE_USERNAME') === 'enter-here'
+            || getenv('SALESFORCE_PASSWORD') === 'enter-here'
+        ) {
+            $this->markTestSkipped('Salesforce credentials are not configured.');
+        }
+
         $restforce = new Restforce(
             getenv('SALESFORCE_OAUTH_CLIENT'),
             getenv('SALESFORCE_OAUTH_SECRET'),
