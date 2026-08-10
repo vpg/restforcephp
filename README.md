@@ -10,7 +10,7 @@ This is meant to emulate what the [ejhomes/restforce gem](https://github.com/ejh
 
 ## Installation
 
-This library requires PHP 7.1 or later; we recommend using the latest available version of PHP.
+This library requires PHP 7.0 or later; we recommend using the latest compatible version of PHP.
 
 ```
 $ composer require eventfarm/restforcephp
