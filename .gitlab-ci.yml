@@ -1,0 +1,9 @@
+# Common CI Templates
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - project: 'vpg-common/pipelines/php-services'
+    file : '/pipeline.gitlab-ci.yml'
+    ref: main
+
+variables:
+  RUNNER_IMAGE: "docker-registry.vpg.tech/vp-php7.1:jessie-calc"
